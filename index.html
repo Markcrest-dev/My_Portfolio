@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macrest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Feather Icons for GitHub and other icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+                line-height: 1.4;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .card {
+                margin-bottom: 1rem;
+            }
+
+            .mobile-padding {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Tablet Optimizations */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .tablet-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Large Screen Optimizations */
+        @media (min-width: 1025px) {
+            .desktop-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .card:hover {
+                transform: none;
+            }
+
+            .card:active {
+                transform: scale(0.98);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#home" class="text-xl font-bold text-gradient">Macrest</a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home"
+                        class="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">Home</a>
+                    <a href="#about"
+                        class="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">About</a>
+                    <a href="#skills"
+                        class="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">Skills</a>
+                    <a href="#projects"
+                        class="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">Projects</a>
+                    <a href="#contact"
+                        class="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">Contact</a>
+                    <button id="theme-toggle"
+                        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        🌙
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="theme-toggle-mobile"
+                        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        🌙
+                    </button>
+                    <button id="mobile-menu-button"
+                        class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-2">
+                    <a href="#home"
+                        class="mobile-nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home</a>
+                    <a href="#about"
+                        class="mobile-nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
+                    <a href="#skills"
+                        class="mobile-nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Skills</a>
+                    <a href="#projects"
+                        class="mobile-nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Projects</a>
+                    <a href="#contact"
+                        class="mobile-nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center mobile-padding px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="hero-title text-4xl md:text-6xl font-bold mb-6">
+                Hi, I'm <span class="text-gradient">Mark</span>
+            </h1>
+            <p class="hero-subtitle text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
+                I’m a passionate full-stack developer with 4 years of hands-on coding experience, a skilled UI/UX
+                designer, and a
+                proficient graphic designer. I specialize in crafting seamless digital experiences by combining modern
+                technologies,
+                clean code, and compelling visual design.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <button
+                    class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+                    <a href="#contact">Get In Touch</a>
+                </button>
+            </div>
+
+            <div class="flex items-center justify-center gap-6">
+                <a href="https://github.com/Markcrest-dev" target="_blank" rel="noopener noreferrer"
+                    class="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors">
+                    <i data-feather="github" class="w-6 h-6"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mark-40aty5" target="_blank" rel="noopener noreferrer"
+                    class="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors">
+                    <i data-feather="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=cokafor169@gmail.com"
+                    class="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors">
+                    <i data-feather="mail" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Learn more about my background, experience, and what drives my passion for development.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <div class="inline-block rounded-2xl bg-gradient-to-br from-primary-500 to-purple-600 p-1">
+                        <div class="rounded-2xl bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                            <img src="images/Mark1.jpg" alt="Mark - Full-Stack Developer"
+                                class="w-64 h-auto sm:w-72 md:w-80 lg:w-96 rounded-2xl transition-transform duration-300 hover:scale-105">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold">Full-Stack Developer</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        I'm a passionate full-stack developer with over 4 years of experience in creating
+                        web applications. I love turning complex problems into simple, beautiful, and
+                        intuitive solutions.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        When I'm not coding, you can find me exploring new technologies, contributing to
+                        open-source projects, or sharing my knowledge through blog posts and mentoring.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div>
+                            <h4 class="font-semibold text-primary-600">30+</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Projects Completed</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary-600">4+</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Years Experience</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary-600">10+</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Happy Clients</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary-600">100%</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Satisfaction Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/50 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Here are the technologies and tools I work with to bring ideas to life.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white mr-4">
+                            <i data-feather="code" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Frontend</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">React</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-14 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Next.js</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-12 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">TypeScript</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-13 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 text-white mr-4">
+                            <i data-feather="server" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Backend</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Node.js</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-14 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Python</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-12 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">PostgreSQL</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-13 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white mr-4">
+                            <i data-feather="smartphone" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Design</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Figma</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-14 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Photoshop</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-12 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Canva</span>
+                            <div class="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                                <div class="w-13 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Here are some of my recent projects that showcase my skills and experience.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 relative">
+
+                    <div class="flex justify-center mb-4">
+                        <div class="p-4 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white">
+                            <i data-feather="shopping-cart" class="w-12 h-12"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-3">E-Commerce Platform</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                        A full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include
+                        user authentication, product management, and order processing.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">React</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Node.js</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">MongoDB</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Stripe</span>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="github" class="w-4 h-4"></i> <span class="text-sm">Code</span>
+                        </a>
+                        <a href="https://demo.com" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="external-link" class="w-4 h-4"></i> <span class="text-sm">Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 relative">
+                    <div class="flex justify-center mb-4">
+                        <div class="p-4 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
+                            <i data-feather="check-square" class="w-12 h-12"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-3">Task Management App</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                        A collaborative task management application with real-time updates, drag-and-drop functionality,
+                        and team collaboration features.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Next.js</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">TypeScript</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Prisma</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Socket.io</span>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="github" class="w-4 h-4"></i> <span class="text-sm">Code</span>
+                        </a>
+                        <a href="https://demo.com" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="external-link" class="w-4 h-4"></i> <span class="text-sm">Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex justify-center mb-4">
+                        <div class="p-4 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white">
+                            <i data-feather="clock" class="w-12 h-12"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-3">Countdown app</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                        A responsive countdown website that lets users create and track events in real time with sleek
+                        timers and intuitive
+                        design.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">JavaScript</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">CSS3</span>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://github.com/Markcrest-dev/Countdown.git"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="github" class="w-4 h-4"></i> <span class="text-sm">Code</span>
+                        </a>
+                        <a href="https://countdown-two-tan.vercel.app"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="external-link" class="w-4 h-4"></i> <span class="text-sm">Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex justify-center mb-4">
+                        <div class="p-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+                            <i data-feather="help-circle" class="w-12 h-12"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-3">Quiz app</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                        A quiz app featuring timed questions, score tracking, and custom quiz creation. Built with
+                        modern web technologies for a fast and smooth and interactive learning experience.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">React
+                            Native</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Firebase</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Redux</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Expo</span>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://github.com/Markcrest-dev/StudyStorm.git"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="github" class="w-4 h-4"></i> <span class="text-sm">Code</span>
+                        </a>
+                        <a href="https://studystorm.netlify.app/"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="external-link" class="w-4 h-4"></i> <span class="text-sm">Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex justify-center mb-4">
+                        <div class="p-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+                            <i data-feather="briefcase" class="w-12 h-12"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-3">Portfolio Website</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                        A modern, responsive portfolio website built with Next.js and Tailwind CSS. Features dark mode,
+                        animations, and optimized performance.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Next.js</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Tailwind</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Framer
+                            Motion</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">TypeScript</span>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://github.com"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="github" class="w-4 h-4"></i> <span class="text-sm">Code</span>
+                        </a>
+                        <a href="https://demo.com"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="external-link" class="w-4 h-4"></i> <span class="text-sm">Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 relative">
+
+                    <div class="flex justify-center mb-4">
+                        <div class="p-4 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white">
+                            <i data-feather="map-pin" class="w-12 h-12"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-3">Tourist Website</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                        A tourist website offering curated travel guides, destination highlights, and interactive maps
+                        for a seamless
+                        exploration experience.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">CSS3</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">Php</span>
+                        <span
+                            class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium">React</span>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://github.com/Markcrest-dev/Tourism.git"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="github" class="w-4 h-4"></i> <span class="text-sm">Code</span>
+                        </a>
+                        <a href="https://tourism-eight-umber.vercel.app"
+                            class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 transition-colors">
+                            <i data-feather="external-link" class="w-4 h-4"></i> <span class="text-sm">Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800/50 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Have a project in mind or want to collaborate? I'd love to hear from you!
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Let's talk about your project</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            I'm always interested in new opportunities and exciting projects.
+                            Whether you have a question or just want to say hi, feel free to reach out!
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg">
+                                <span class="text-2xl">✉️</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-400">cokafor169@gmailcom</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg">
+                                <span class="text-2xl">📞</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p class="text-gray-600 dark:text-gray-400">+234 816 468 5389</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg">
+                                <span class="text-2xl">📍</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Based in Nigeria • Available for remote work
+                                    worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <form id="contact-form">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 transition-colors"
+                                    placeholder="Your name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 transition-colors"
+                                    placeholder="your.email@example.com">
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 transition-colors"
+                                placeholder="Project inquiry">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" required rows="6"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 transition-colors resize-none"
+                                placeholder="Tell me about your project..."></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <span>📤</span> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-xl font-bold text-gradient mb-4">Portfolio</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Creating amazing web experiences with modern technologies and clean code.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a>
+                        </li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Get In Touch</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>cokafor169@gmail.com</p>
+                        <p>+234 816 468 5389</p>
+                        <p>Based in Nigeria • Available for remote work worldwide</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-6">
+                        <a href="https://github.com/Markcrest-dev" target="_blank" rel="noopener noreferrer"
+                            class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <i data-feather="github" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mark-40aty5" target="_blank" rel="noopener noreferrer"
+                            class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=cokafor169@gmail.com"
+                            class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.classList.add(currentTheme);
+
+        function updateThemeButtons(theme) {
+            const icon = theme === 'dark' ? '☀️' : '🌙';
+            if (themeToggle) themeToggle.textContent = icon;
+            if (themeToggleMobile) themeToggleMobile.textContent = icon;
+        }
+
+        updateThemeButtons(currentTheme);
+
+        function toggleTheme() {
+            const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
+            html.classList.remove('light', 'dark');
+            html.classList.add(newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButtons(newTheme);
+        }
+
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuButton.innerHTML = isOpen
+                    ? '<i data-feather="x" class="w-6 h-6"></i>'
+                    : '<i data-feather="menu" class="w-6 h-6"></i>';
+                feather.replace();
+            });
+
+            // Close mobile menu when clicking on a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.innerHTML = '<i data-feather="menu" class="w-6 h-6"></i>';
+                    feather.replace();
+                });
+            });
+        }
+
+        // Contact form functionality
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
+
+            // Simulate form submission
+            alert(`Thank you, ${data.name}! Your message has been received. I'll get back to you soon.`);
+
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Initialize first section as visible
+        document.querySelector('#home').style.opacity = '1';
+        document.querySelector('#home').style.transform = 'translateY(0)';
+
+        // Initialize Feather icons
+        feather.replace();
+    </script>
+</body>
+
+</html>
