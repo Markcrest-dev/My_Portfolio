@@ -38,6 +38,13 @@ const Footer = () => {
             Macrest
           </Link>
 
+          {/* Copyright */}
+          <div className="text-center">
+            <p className="text-sm text-muted">
+              © {new Date().getFullYear()} Mark Okafor — Available for remote work
+            </p>
+          </div>
+
           {/* Social Icons */}
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
@@ -53,13 +60,6 @@ const Footer = () => {
               </a>
             ))}
           </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-border text-center">
-          <p className="text-sm text-muted">
-            © {new Date().getFullYear()} Mark Okafor — Available for remote work
-          </p>
         </div>
       </div>
     </footer>
