@@ -51,7 +51,7 @@ const Home = () => {
               />
               {/* Image container */}
               <div
-                className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-border transition-all duration-500 group-hover:border-accent"
+                className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full overflow-hidden border-2 border-border transition-all duration-500 group-hover:border-accent"
                 style={{ animation: 'heroFloat 6s ease-in-out infinite' }}
               >
                 <img
