@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import PageWrapper from '../components/PageWrapper'
 import { projects } from '../data/projects'
 
@@ -73,26 +74,37 @@ const Projects = () => {
                 </div>
 
                 {/* Action Links */}
-                <div className="flex gap-6 pt-4 border-t border-border mt-auto">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-muted hover:text-text transition-colors duration-200"
+                <div className="flex gap-6 pt-4 border-t border-border mt-auto items-center">
+                  {project.slug ? (
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="text-sm text-accent hover:text-text transition-colors duration-200"
                     >
-                      Code ↗
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-muted hover:text-text transition-colors duration-200"
-                    >
-                      Demo ↗
-                    </a>
+                      View Case Study ↗
+                    </Link>
+                  ) : (
+                    <>
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-muted hover:text-text transition-colors duration-200"
+                        >
+                          Code ↗
+                        </a>
+                      )}
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-muted hover:text-text transition-colors duration-200"
+                        >
+                          Demo ↗
+                        </a>
+                      )}
+                    </>
                   )}
                 </div>
               </div>

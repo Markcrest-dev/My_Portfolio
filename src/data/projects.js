@@ -49,19 +49,54 @@ export const projects = [
   },
   {
     title: 'NoAgent',
+    slug: 'noagent',
     type: 'App',
     description: 'An innovative real estate platform streamlining the leasing process by directly connecting landlords and tenants, featuring move-in services and integrated split payments.',
     tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Firebase'],
     github: 'https://github.com/Markcrest-dev/NoAgent',
     demo: '',
+    caseStudy: `
+# NoAgent: Revolutionizing Real Estate
+
+NoAgent is an innovative real estate platform that streamlines the leasing process by directly connecting landlords and tenants, completely eliminating the need for traditional agents.
+
+## The Challenge
+The primary challenge was handling the complex logic of lease agreements, background checks, and split payments securely, while maintaining a simple and intuitive UI for both landlords and tenants.
+
+## The Solution
+We implemented a robust architecture using React and Firebase. Key features include:
+- **Move-In Services**: A streamlined workflow for tenants to request and schedule services upon moving in.
+- **Split Payments**: We integrated Paystack to handle complex 2% split payments automatically, transferring 98% directly to the landlord's subaccount while retaining the platform fee.
+- **Real-Time Chat**: Direct, real-time messaging between landlords and tenants using Firebase Firestore.
+
+## The Outcome
+The result is a highly secure, performant application that significantly reduces the friction and cost of renting properties.
+    `,
   },
   {
     title: 'House Of Aura',
+    slug: 'house-of-aura',
     type: 'Website',
     description: 'A premium, highly interactive salon website featuring immersive 3D elements, smooth GSAP animations, and a dynamic content management system via Sanity.',
     tech: ['React', 'Three.js', 'GSAP', 'Sanity'],
     github: 'https://github.com/Markcrest-dev/House_Of_Aura',
     demo: 'https://house-of-aura.vercel.app',
+    caseStudy: `
+# House Of Aura: A Premium Salon Experience
+
+House Of Aura is a premium, highly interactive salon website designed to reflect the elegance and high-end service of the physical salon.
+
+## The Challenge
+The goal was to create a digital experience that felt as luxurious as the salon itself. This required moving beyond standard web design and incorporating immersive 3D elements and fluid animations without sacrificing performance or accessibility.
+
+## The Solution
+- **Immersive 3D Elements**: We utilized Three.js to create subtle, engaging 3D backgrounds that respond to user interaction.
+- **Fluid Animations**: GSAP was used extensively for scroll-triggered animations and smooth page transitions, giving the site a "weightless" feel.
+- **Dynamic Content**: A Sanity CMS backend empowers the salon staff to easily update services, pricing, and gallery images without touching code.
+
+## The Outcome
+A visually stunning, high-performance website that captures the essence of the brand and provides a memorable first impression for potential clients.
+    `,
   },
   {
     title: 'Elite Estates',
