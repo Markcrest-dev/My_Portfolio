@@ -19,7 +19,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Photo */}
             <div>
-              <div className="border border-border rounded-sm overflow-hidden">
+              <div className="border-border rounded-sm overflow-hidden">
                 <img
                   src="/Mark5.jpg"
                   alt="Mark Okafor — Full-Stack & Mobile Developer"
