@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Code } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import PageWrapper from '../components/PageWrapper'
 import { projects } from '../data/projects'
@@ -38,7 +38,7 @@ const CaseStudy = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 hover:text-text transition-colors duration-200"
               >
-                <Github size={16} />
+                <Code size={16} />
                 Source Code
               </a>
             )}
