@@ -5,13 +5,13 @@ import { projects } from '../data/projects'
 
 const Home = () => {
   // Show first 2 projects as "selected work" teaser
-  const featured = projects.slice(0, 2)
+  const featured = projects.slice(6, 8)
 
   return (
     <PageWrapper>
       {/* Hero */}
-      <section className="min-h-screen flex items-center px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="min-h-[100dvh] flex flex-col justify-center pt-28 pb-12 lg:pt-0 lg:pb-0 px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-8 lg:mt-0">
           {/* Left — Info */}
           <div className="max-w-2xl">
             <p className="font-mono text-sm text-muted mb-4 tracking-wider">
