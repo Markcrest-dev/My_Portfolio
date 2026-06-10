@@ -2,14 +2,6 @@ import { Link } from 'react-router-dom'
 import { Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './Icons'
 
-const navLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
-  { path: '/skills', label: 'Skills' },
-  { path: '/projects', label: 'Projects' },
-  { path: '/contact', label: 'Contact' },
-]
-
 const socialLinks = [
   {
     href: 'https://github.com/Markcrest-dev',
