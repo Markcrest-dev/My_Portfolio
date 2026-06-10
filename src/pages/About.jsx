@@ -22,7 +22,7 @@ const About = () => {
               <div className="border border-border rounded-sm overflow-hidden">
                 <img
                   src="/Mark5.jpg"
-                  alt="Mark Okafor — Full-Stack Developer"
+                  alt="Mark Okafor — Full-Stack & Mobile Developer"
                   className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
@@ -32,12 +32,13 @@ const About = () => {
             <div className="space-y-8">
               <div>
                 <h1 className="font-display text-4xl font-600 text-text mb-6">
-                  Full-Stack Developer
+                  Full-Stack & Mobile Developer
                 </h1>
                 <p className="text-muted leading-relaxed mb-4">
-                  I'm a passionate full-stack developer with over 4 years of experience
-                  in creating web applications. I love turning complex problems into
-                  simple, beautiful, and intuitive solutions.
+                  I'm a passionate full-stack and mobile developer with over 4 years of
+                  experience building web and mobile applications. I love turning complex
+                  problems into simple, beautiful, and intuitive solutions — whether it's
+                  a responsive website or a native mobile app.
                 </p>
                 <p className="text-muted leading-relaxed">
                   When I'm not coding, you can find me exploring new technologies,
@@ -67,8 +68,8 @@ const About = () => {
                 </h3>
                 <p className="text-text leading-relaxed">
                   Building <span className="text-accent">NoAgent</span> — a real estate
-                  platform that connects landlords and tenants directly. Also available
-                  for freelance web development and UI/UX design work.
+                  mobile app that connects landlords and tenants directly. Also available
+                  for freelance web & mobile development and UI/UX design work.
                 </p>
               </div>
             </div>

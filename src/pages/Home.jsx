@@ -15,13 +15,13 @@ const Home = () => {
           {/* Left — Info */}
           <div className="max-w-2xl">
             <p className="font-mono text-sm text-muted mb-4 tracking-wider">
-              FULL-STACK DEVELOPER
+              FULL-STACK & MOBILE DEVELOPER
             </p>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-600 text-text leading-tight mb-6">
               Mark<br />Okafor
             </h1>
             <p className="text-muted text-lg leading-relaxed mb-10 max-w-lg">
-              Full-stack developer with 4+ years of experience crafting clean, performant web applications and intuitive digital experiences.
+              Full-stack and mobile developer with 4+ years of experience crafting clean, performant web and mobile applications — from responsive websites to native apps — delivering intuitive digital experiences end to end.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -56,7 +56,7 @@ const Home = () => {
               >
                 <img
                   src="/Mark5.jpg"
-                  alt="Mark Okafor — Full-Stack Developer"
+                  alt="Mark Okafor — Full-Stack & Mobile Developer"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
