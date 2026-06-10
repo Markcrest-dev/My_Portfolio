@@ -8,7 +8,7 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Label */}
           <p className="font-mono text-sm text-muted mb-4 tracking-wider">
-            // PROJECTS
+            PROJECTS
           </p>
           <h1 className="font-display text-4xl font-600 text-text mb-12">
             Things I've built

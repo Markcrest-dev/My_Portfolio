@@ -8,7 +8,7 @@ const Skills = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Label */}
           <p className="font-mono text-sm text-muted mb-4 tracking-wider">
-            // SKILLS & TECHNOLOGIES
+            SKILLS & TECHNOLOGIES
           </p>
           <h1 className="font-display text-4xl font-600 text-text mb-12">
             What I work with
@@ -19,7 +19,7 @@ const Skills = () => {
             {skills.map((category) => (
               <div key={category.category}>
                 <h3 className="font-mono text-xs text-muted tracking-widest mb-5 uppercase">
-                  // {category.category}
+                  {category.category}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {category.items.map((skill) => (

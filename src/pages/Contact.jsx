@@ -48,7 +48,7 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Label */}
           <p className="font-mono text-sm text-muted mb-4 tracking-wider">
-            // CONTACT
+             CONTACT
           </p>
           <h1 className="font-display text-4xl font-600 text-text mb-12">
             Get in touch
@@ -92,7 +92,7 @@ const Contact = () => {
               {/* Social Links */}
               <div>
                 <p className="font-mono text-xs text-muted tracking-wider uppercase mb-4">
-                  // SOCIALS
+                  SOCIALS
                 </p>
                 <div className="flex gap-3">
                   {socialLinks.map((social) => (

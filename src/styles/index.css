@@ -56,3 +56,9 @@ body {
   background-color: rgba(200, 240, 74, 0.2);
   color: var(--color-accent);
 }
+
+/* Hero image float animation */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}

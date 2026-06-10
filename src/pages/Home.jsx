@@ -11,10 +11,11 @@ const Home = () => {
     <PageWrapper>
       {/* Hero */}
       <section className="min-h-screen flex items-center px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto w-full">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — Info */}
           <div className="max-w-2xl">
             <p className="font-mono text-sm text-muted mb-4 tracking-wider">
-              // FULL-STACK DEVELOPER
+              FULL-STACK DEVELOPER
             </p>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-600 text-text leading-tight mb-6">
               Mark<br />Okafor
@@ -39,6 +40,28 @@ const Home = () => {
               </Link>
             </div>
           </div>
+
+          {/* Right — Profile Image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative group">
+              {/* Accent glow behind image */}
+              <div
+                className="absolute -inset-1 rounded-full opacity-40 blur-2xl transition-opacity duration-500 group-hover:opacity-70"
+                style={{ background: 'radial-gradient(circle, var(--color-accent) 0%, transparent 70%)' }}
+              />
+              {/* Image container */}
+              <div
+                className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-border transition-all duration-500 group-hover:border-accent"
+                style={{ animation: 'heroFloat 6s ease-in-out infinite' }}
+              >
+                <img
+                  src="/Mark5.jpg"
+                  alt="Mark Okafor — Full-Stack Developer"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -48,7 +71,7 @@ const Home = () => {
           <div className="border-t border-border pt-16">
             <div className="flex items-center justify-between mb-10">
               <h2 className="font-mono text-sm text-muted tracking-wider">
-                // SELECTED WORK
+                SELECTED WORK
               </h2>
               <Link
                 to="/projects"

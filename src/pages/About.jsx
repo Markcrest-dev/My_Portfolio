@@ -13,7 +13,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Label */}
           <p className="font-mono text-sm text-muted mb-12 tracking-wider">
-            // ABOUT
+            ABOUT
           </p>
 
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -63,7 +63,7 @@ const About = () => {
               {/* Currently */}
               <div>
                 <h3 className="font-mono text-sm text-muted tracking-wider mb-3">
-                  // CURRENTLY
+                  CURRENTLY
                 </h3>
                 <p className="text-text leading-relaxed">
                   Building <span className="text-accent">NoAgent</span> — a real estate
