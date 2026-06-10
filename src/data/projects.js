@@ -1,6 +1,7 @@
 export const projects = [
   {
     title: 'BitBuy',
+    type: 'App',
     description: 'A modern, full-stack e-commerce platform featuring a sleek user interface, secure Stripe payment integration, and a robust admin dashboard for product and order management.',
     tech: ['Next.js', 'React', 'Tailwind CSS', 'Prisma', 'Stripe'],
     github: 'https://github.com/Markcrest-dev/BitBuy',
@@ -8,6 +9,7 @@ export const projects = [
   },
   {
     title: 'StockFlow',
+    type: 'App',
     description: 'A collaborative task and inventory management application designed for seamless real-time updates and team coordination.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
     github: 'https://github.com/Markcrest-dev/StockFLow',
@@ -15,6 +17,7 @@ export const projects = [
   },
   {
     title: 'Countdown',
+    type: 'Website',
     description: 'A responsive countdown website that lets users create and track events in real time with sleek timers and intuitive design.',
     tech: ['JavaScript', 'CSS3'],
     github: 'https://github.com/Markcrest-dev/Countdown',
@@ -22,6 +25,7 @@ export const projects = [
   },
   {
     title: 'StudyStorm',
+    type: 'App',
     description: 'An interactive learning platform and biology quiz app for students, featuring timed questions, difficulty levels, and progress tracking with engaging visuals.',
     tech: ['JavaScript', 'Express', 'SQLite3'],
     github: 'https://github.com/Markcrest-dev/StudyStorm',
@@ -29,6 +33,7 @@ export const projects = [
   },
   {
     title: 'My Portfolio',
+    type: 'Website',
     description: 'A modern, responsive portfolio website showcasing my professional work, built with a refined high-end design system, dark mode, and dynamic animations.',
     tech: ['React', 'Vite', 'Tailwind CSS'],
     github: 'https://github.com/Markcrest-dev/My_Portfolio',
@@ -36,6 +41,7 @@ export const projects = [
   },
   {
     title: 'Tourism',
+    type: 'Website',
     description: 'A beautifully designed tourist website offering curated travel guides, destination highlights, and interactive elements for a seamless exploration experience.',
     tech: ['SCSS', 'JavaScript'],
     github: 'https://github.com/Markcrest-dev/Tourism',
@@ -43,6 +49,7 @@ export const projects = [
   },
   {
     title: 'NoAgent',
+    type: 'App',
     description: 'An innovative real estate platform streamlining the leasing process by directly connecting landlords and tenants, featuring move-in services and integrated split payments.',
     tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Firebase'],
     github: 'https://github.com/Markcrest-dev/NoAgent',
@@ -50,6 +57,7 @@ export const projects = [
   },
   {
     title: 'House Of Aura',
+    type: 'Website',
     description: 'A premium, highly interactive salon website featuring immersive 3D elements, smooth GSAP animations, and a dynamic content management system via Sanity.',
     tech: ['React', 'Three.js', 'GSAP', 'Sanity'],
     github: 'https://github.com/Markcrest-dev/House_Of_Aura',
@@ -57,6 +65,7 @@ export const projects = [
   },
   {
     title: 'Elite Estates',
+    type: 'Website',
     description: 'A sophisticated real estate property listing platform with beautiful scroll animations, interactive data visualization, and a clean modern interface.',
     tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Recharts'],
     github: 'https://github.com/Markcrest-dev/elite-estates',
@@ -64,6 +73,7 @@ export const projects = [
   },
   {
     title: 'Aether',
+    type: 'Website',
     description: 'An experimental, immersive web experience built with 3D graphics, leveraging Three.js and GSAP for stunning visual storytelling and interactions.',
     tech: ['React', 'Three.js', 'GSAP'],
     github: 'https://github.com/Markcrest-dev/Aether',
@@ -71,6 +81,7 @@ export const projects = [
   },
   {
     title: 'Grandview Academy',
+    type: 'App',
     description: 'A comprehensive school management portal featuring internationalization (i18n), interactive data charts, and Progressive Web App (PWA) capabilities.',
     tech: ['React', 'Vite', 'Tailwind CSS', 'i18next'],
     github: 'https://github.com/Markcrest-dev/Grandview_Academy',
@@ -78,6 +89,7 @@ export const projects = [
   },
   {
     title: 'A-BIG',
+    type: 'App',
     description: 'A dynamic web application fully integrated with Firebase for real-time data handling and robust backend services.',
     tech: ['React', 'Vite', 'Firebase', 'Tailwind CSS'],
     github: 'https://github.com/Markcrest-dev/A-BIG',
@@ -85,6 +97,7 @@ export const projects = [
   },
   {
     title: 'Streakly',
+    type: 'App',
     description: 'A habit-tracking application designed to help users build consistency and achieve their goals through daily streaks and analytics.',
     tech: ['React', 'Tailwind CSS'],
     github: 'https://github.com/Markcrest-dev/Streakly',
@@ -92,6 +105,7 @@ export const projects = [
   },
   {
     title: 'Renewly',
+    type: 'App',
     description: 'A sustainable energy or subscription management platform focused on streamlined user experiences and clean aesthetics.',
     tech: ['React', 'Tailwind CSS'],
     github: 'https://github.com/Markcrest-dev/Renewly',
@@ -99,6 +113,7 @@ export const projects = [
   },
   {
     title: 'Aevo',
+    type: 'App',
     description: 'A modern, high-performance web application designed for seamless user interaction and optimal scalability.',
     tech: ['React', 'Vite', 'Tailwind CSS'],
     github: 'https://github.com/Markcrest-dev/Aevo',
@@ -106,6 +121,7 @@ export const projects = [
   },
   {
     title: 'Happy Birthday',
+    type: 'Website',
     description: 'A personalized, interactive digital greeting card experience featuring festive animations and custom messages.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/Markcrest-dev/Happy-Birthday',
@@ -113,6 +129,7 @@ export const projects = [
   },
   {
     title: 'Gift',
+    type: 'App',
     description: 'A robust application designed to facilitate digital gifting and rewards with a secure, typing-safe architecture.',
     tech: ['TypeScript', 'React'],
     github: 'https://github.com/Markcrest-dev/Gift',
@@ -120,9 +137,10 @@ export const projects = [
   },
   {
     title: 'TasteTrail',
+    type: 'App',
     description: 'A food discovery and review platform helping users find, rate, and share their favorite culinary experiences.',
     tech: ['React', 'Node.js', 'MongoDB'],
     github: 'https://github.com/Markcrest-dev/TasteTrail',
     demo: '',
   },
-]
+];
