@@ -67,9 +67,11 @@ const About = () => {
                   CURRENTLY
                 </h3>
                 <p className="text-text leading-relaxed">
-                  Building <span className="text-accent">NoAgent</span> — a real estate
-                  mobile app that connects landlords and tenants directly. Also available
-                  for freelance web & mobile development and UI/UX design work.
+                  Constantly building, learning, and levelling up my skills across the
+                  <span className="text-accent"> full-stack & mobile</span> landscape.
+                  I'm always an open learner — eager to explore new technologies, take on
+                  fresh challenges, and collaborate on meaningful projects. Open to
+                  freelance work, team projects, and exciting partnerships.
                 </p>
               </div>
             </div>
